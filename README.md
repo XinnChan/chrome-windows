@@ -1,1 +1,3 @@
-Invoke-WebRequest -Uri "https://www.apkmirror.com/wp-content/themes/APKMirror/download.php?id=1098820" -OutFile "C:\Users\Public\Downloads\chrome.apk"
+$url = "https://dl.google.com/chrome/install/GoogleChromeStandaloneEnterprise64.msi"
+$output = "C:\Users\Public\Downloads\ChromeSetup.msi"
+(New-Object System.Net.WebClient).DownloadFile($url, $output)
