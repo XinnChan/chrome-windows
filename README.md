@@ -1,3 +1,4 @@
-$url = "https://dl.google.com/chrome/install/GoogleChromeStandaloneEnterprise64.msi"
-$output = "C:\Users\Public\Downloads\ChromeSetup.msi"
-(New-Object System.Net.WebClient).DownloadFile($url, $output)
+$Path = "$env:TEMP\chrome_installer.exe"
+Invoke-WebRequest -Uri "https://dl.google.com/chrome/install/latest/chrome_installer.exe" -OutFile $Path
+Start-Process -FilePath $Path -Args "/silent /install" -Wait
+Remove-Item $Path
